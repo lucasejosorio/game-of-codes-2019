@@ -14,7 +14,7 @@
 Auth::routes();
 
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/', 'HomeController@welcome')->name('welcome');
 
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
