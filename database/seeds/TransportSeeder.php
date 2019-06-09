@@ -13,11 +13,11 @@ class TransportSeeder extends Seeder
     public function run()
     {
         Transport::create([
-            'title' => 'Bicicleta'
+            'title' => 'Bicicleta',
         ]);
 
         Transport::create([
-            'title' => 'Caminhando'
+            'title' => 'A pé',
         ]);
 
     }
