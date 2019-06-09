@@ -11,7 +11,7 @@
             <a class="btn btn-primary float-right" href="{{ route('ride.create') }}"><i class="fa fa-plus"></i>
                 Adicionar</a>
         </div>
-       @include('layouts._card-list')
+        @include('layouts._card-list')
     </div>
 
 @endsection

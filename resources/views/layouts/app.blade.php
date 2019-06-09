@@ -24,7 +24,7 @@
 </head>
 <body>
 <div id="app">
-{{--    @include('layouts.welcome-loader')--}}
+    @include('layouts.welcome-loader')
     @include('layouts.navbar')
 
 

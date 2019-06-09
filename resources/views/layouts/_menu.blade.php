@@ -33,6 +33,16 @@
                             </a>
                         </li>
                         <li class="header__dropdown-menu-item">
+                            <a href="{{ route('dashboard') }}" class="header__dropdown-menu-link" title="Help">
+                                <div class="header__dropdown-menu-svg">
+                                    <i class="fas fa-search-location"></i>
+                                </div>
+                                <div class="header__dropdown-menu-text">
+                                    Buscar trips
+                                </div>
+                            </a>
+                        </li>
+                        <li class="header__dropdown-menu-item">
                             <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
@@ -53,10 +63,7 @@
                         <li class="header__dropdown-menu-item">
                             <a href="{{ route('login') }}" class="header__dropdown-menu-link" title="Help">
                                 <div class="header__dropdown-menu-svg">
-                                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                        <path fill="#000000"
-                                              d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
-                                    </svg>
+                                    <i class="fas fa-sign-in-alt"></i>
                                 </div>
                                 <div class="header__dropdown-menu-text">
                                     Login
@@ -66,10 +73,7 @@
                         <li class="header__dropdown-menu-item">
                             <a href="{{ route('register') }}" class="header__dropdown-menu-link" title="Help">
                                 <div class="header__dropdown-menu-svg">
-                                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                        <path fill="#000000"
-                                              d="M15,14C12.33,14 7,15.33 7,18V20H23V18C23,15.33 17.67,14 15,14M6,10V7H4V10H1V12H4V15H6V12H9V10M15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12Z"/>
-                                    </svg>
+                                    <i class="fas fa-user-plus"></i>
                                 </div>
                                 <div class="header__dropdown-menu-text">
                                     Cadastre-se

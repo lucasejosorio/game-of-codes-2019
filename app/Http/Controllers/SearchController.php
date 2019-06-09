@@ -30,6 +30,6 @@ class SearchController extends Controller
             $ride->distance = $this->formatDistanceToKm($ride->distance);
         }
 
-        return view('welcome', compact('rides'));
+        return view('search', compact('rides'));
     }
 }

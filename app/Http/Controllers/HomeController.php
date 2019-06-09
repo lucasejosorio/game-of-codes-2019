@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $rides = $user->rides;
-        return view('home', compact('rides', 'user'));
+        return view('dashboard', compact('rides', 'user'));
     }
 
 
@@ -34,6 +34,6 @@ class HomeController extends Controller
         $user = auth()->user();
         $rides = $user->rides;
 
-        return view('welcome', compact('rides', 'user'));
+        return view('dashboard', compact('rides', 'user'));
     }
 }
