@@ -14,10 +14,12 @@ class TransportSeeder extends Seeder
     {
         Transport::create([
             'title' => 'Bicicleta',
+            'icon' => 'fa-biking',
         ]);
 
         Transport::create([
             'title' => 'A pé',
+            'icon' => 'fa-walking',
         ]);
 
     }

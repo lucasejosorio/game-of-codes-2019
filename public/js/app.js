@@ -49173,6 +49173,51 @@ $(document).ready(function () {
   window.setTimeout(function () {
     $('.welcome-loader').hide();
   }, 1000);
+  $('.js-open-modal').click(function () {
+    var self = $(this);
+    var target = self.data('target');
+    $(target).show();
+  });
+  $('.js-close-modal').click(function () {
+    var self = $(this);
+    var target = self.data('target');
+    $(target).hide();
+  });
+  $('.venue-start').click(function () {
+    var name = $(this).parents('.location-list__item').find('.inner--name').html();
+    $('.js-ponto-partida').html("\n               <i class=\"fa fa-map-marker-alt\"></i> ".concat(name, "\n               "));
+    $(this).parents('.full-screen-modal').hide();
+  });
+  $('.venue-destination').click(function () {
+    var name = $(this).parents('.location-list__item').find('.inner--name').html();
+    $('.js-ponto-chegada').html("\n               <i class=\"fa fa-map-marker-alt\"></i> ".concat(name, "\n               "));
+    $(this).parents('.full-screen-modal').hide();
+  });
+
+  function initMap(data, name) {
+    console.log(data);
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: data,
+      zoom: 14
+    });
+    var marker = new google.maps.Marker({
+      position: data,
+      map: map,
+      title: name
+    });
+  }
+
+  $('.js-open-map').click(function () {
+    var self = $(this);
+    var latitude = self.data('latitude');
+    var longitude = self.data('longitude');
+    var name = self.find('.inner--name').html();
+    initMap({
+      lat: latitude,
+      lng: longitude
+    }, name);
+    $('#map_modal').show();
+  });
 });
 
 /***/ }),
