@@ -10,13 +10,11 @@
             <div class="divider"></div>
             <div class="to">
                 <span class="inner--text font-weight-bold">Até: </span>
-                <span
-                        class="inner--name text-primary font-weight-bold">{{$ride->destination_venue->title}}</span>
+                <span class="inner--name text-primary font-weight-bold">{{$ride->destination_venue->title}}</span>
             </div>
             <div class="to">
                 <span class="inner--text font-weight-bold">Horário: </span>
-                <span
-                        class="inner--name text-primary font-weight-bold">{{$ride->date->format("h\h d/m/Y ")}}</span>
+                <span class="inner--name text-primary font-weight-bold">{{$ride->date->format("h\h d/m/Y ")}}</span>
             </div>
             <div class="to">
                 <span class="inner--text font-weight-bold">Veículo: </span>
@@ -29,7 +27,7 @@
             <div class="no-results">
                 <div class="inner--icon"><i class="far fa-dizzy"></i></div>
                 <div class="inner--text"></div>
-                Você ainda não participa de nenhuma trip!
+                Não encontramos nenhuma trip
             </div>
             @endforelse
         </div>
