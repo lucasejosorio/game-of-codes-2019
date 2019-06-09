@@ -95,3 +95,38 @@ $(document).ready(function () {
     });
 
 });
+
+
+
+$('#comment-sender').click(function () {
+    axios.post(ride_comment_url, {
+        user_id: user,
+        comment: $('#comment-text').val()
+    }).then(function (response) {
+        commentAdd({
+            avatar: my_avatar,
+            username: my_username,
+            message: $('#comment-text').val()
+        });
+        $('#comment-text').val('');
+        $('#comment-alert').fadeIn().delay('5000').fadeOut();
+    })
+        .catch(function (error) {
+            console.log(error);
+        });
+});
+
+function commentAdd(data) {
+
+    $('.comment-section ul').append(`
+        <li class="comment my-comment">
+                        <div class="avatar" style="background-size: cover; background-position: center; background-image: url('${data.avatar}');">
+                        </div>
+                        <div class="chat">
+                            <h6 class="font-weight-bold">${data.username}</h6>
+                            ${data.message}
+                        </div>
+                    </li>
+    `);
+    $('html,body').animate({scrollTop: document.body.scrollHeight},"slow");
+}
