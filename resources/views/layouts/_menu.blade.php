@@ -23,7 +23,7 @@
                 <ul class="header__dropdown-menu-nav">
                     @auth
                         <li class="header__dropdown-menu-item">
-                            <a href="{{ route('welcome') }}" class="header__dropdown-menu-link" title="Help">
+                            <a href="{{ route('dashboard') }}" class="header__dropdown-menu-link" title="Help">
                                 <div class="header__dropdown-menu-svg">
                                     <i class="fas fa-home"></i>
                                 </div>
