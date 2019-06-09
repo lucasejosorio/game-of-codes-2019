@@ -24,7 +24,8 @@
                 <span class="inner--text font-weight-bold">Criador: </span>
                 <span class="inner--name text-primary font-weight-bold">{{$ride->users->first()->name}}</span>
             </div>
-            <a class="btn btn-block btn-primary" href="{{route('ride.show', ['ride_id' => $ride->id])}}">Ver detalhes</a>
+            <a class="btn btn-block btn-primary" href="{{route('ride.show', ['ride_id' => $ride->id])}}">Ver
+                detalhes</a>
         </div>
     @empty
         <div class="ride-list__item">
@@ -33,6 +34,10 @@
                 <div class="inner--text"></div>
                 Não encontramos nenhuma trip
             </div>
-            @endforelse
         </div>
+    @endforelse
+
+    @if(!empty($rides))
+        {{$rides->links()}}
+    @endif
 </div>
