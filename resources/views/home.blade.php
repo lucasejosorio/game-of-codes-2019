@@ -11,15 +11,16 @@
         </div>
         <div class="ride-list">
             <div class="ride-list__item">
-                <a href="{{route('ride.create')}}"><h1>ADICIONAR NOVO</h1></a>
+                <a href="{{route('ride.create')}}"><h3>ADICIONAR NOVO</h3></a>
                 @forelse($rides as $ride)
-                    <div>
-                        <h3>Partida: {{$ride->start_venue->title}}</h3>
-                        <h3>Chegada: {{$ride->destination_venue->title}}</h3>
-                        <h3>Dia e Hora: {{$ride->date->format("d-m-Y h\H")}}</h3>
-                        <h3>Transporte: {{$ride->transport->title}}</h3>
-                    </div>
-
+                    <a href="{{route('ride.show', $ride->id)}}">
+                        <div>
+                            <span>Partida: {{$ride->start_venue->title}}</span><br>
+                            <span>Chegada: {{$ride->destination_venue->title}}</span><br>
+                            <span>Dia e Hora: {{$ride->date->format("d-m-Y h\H")}}</span><br>
+                            <span>Transporte: {{$ride->transport->title}}</span><br>
+                        </div>
+                    </a>
                     <hr>
                 @empty
                     <div>

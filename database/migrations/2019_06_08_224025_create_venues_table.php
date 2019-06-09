@@ -18,8 +18,8 @@ class CreateVenuesTable extends Migration
             $table->string('title');
             $table->string('street');
             $table->integer('number');
-            $table->decimal('latitude', 8, 2);
-            $table->decimal('longitude', 8, 2);
+            $table->decimal('latitude', 10, 8);
+            $table->decimal('longitude', 10, 8);
             $table->timestamps();
         });
     }
