@@ -45,4 +45,8 @@ class User extends Authenticatable
     protected $guarded = [
         'id', '_token'
     ];
+
+    public function rides(){
+        return $this->belongsToMany(Ride::class, 'user_venues', 'user_id', 'ride_id');
+    }
 }

@@ -1,5 +1,9 @@
 
 .header {
+    &__navbar{
+        margin-bottom: 0;
+        list-style: none;
+    }
     &__item {
         padding: 1rem;
         position: relative;
@@ -82,12 +86,8 @@
     }
 
     &__dropdown-menu-svg {
-        padding-right: 16px;
-
-        .header--icon {
-            width: 1.40rem;
-            height: 1.40rem;
-        }
+        padding-right: 10px;
+        width: 40px;
     }
 }
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRide;
 use App\Ride;
+use App\Transport;
+use App\Venue;
 use Illuminate\Contracts\Auth\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -28,8 +30,9 @@ class RidesController extends Controller
     public function create()
     {
         $user = $this->auth->user();
-
-        return view('rides.new', compact('user'));
+        $transports = Transport::all();
+        $venues = Venue::all();
+        return view('rides.new', compact('user', 'transports', 'venues'));
     }
 
     /**
@@ -40,7 +43,9 @@ class RidesController extends Controller
      */
     public function store(StoreRide $request)
     {
-        $ride = Ride::create($request->validated());
+        $user = auth()->user();
+        $ride = $user->rides()->create($request->validated());
+
 
         if (!$ride) {
             return redirect()
@@ -50,7 +55,7 @@ class RidesController extends Controller
                 ]);
         }
 
-        return view('rides.show', compact('ride'));
+        return redirect()->route('dashboard');
     }
 
 
@@ -94,7 +99,7 @@ class RidesController extends Controller
         $ride = Ride::where('id', $id)
                     ->update($request->validated());
 
-        return view('rides.show', compact('ride'));
+        return view('ride.show', compact('ride'));
     }
 
 }

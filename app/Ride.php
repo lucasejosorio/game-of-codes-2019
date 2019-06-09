@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Ride extends Model
@@ -15,6 +16,22 @@ class Ride extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    public function start_venue(){
+        return $this->belongsTo(Venue::class, 'venue_start_id');
+    }
+
+    public function destination_venue(){
+        return $this->belongsTo(Venue::class, 'venue_destination_id');
+    }
+
+    public function transport(){
+        return $this->belongsTo(Transport::class);
+    }
+
+    public function getDateAttribute($date){
+        return Carbon::parse($date);
+    }
+
     public function comments()
     {
         return $this->hasMany('App\Comment');

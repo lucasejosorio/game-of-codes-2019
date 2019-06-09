@@ -27,7 +27,7 @@ class StoreRide extends FormRequest
             'transport_id' => 'required',
             'venue_start_id' => 'required',
             'venue_destination_id' => 'required',
-            'date' => 'required|date',
+            'date' => 'required',
         ];
     }
 
