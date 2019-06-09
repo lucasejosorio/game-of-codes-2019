@@ -19,6 +19,7 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Route::prefix('ride')->group(function(){
     Route::get('/', 'RidesController@create')->name('ride.create');
+    Route::post('/store', 'RidesController@store')->name('ride.store');
     Route::get('/{ride_id}', 'RidesController@show')->name('ride.show');
     Route::post('/{ride_id}/comment', 'CommentController@store')->name('comment.store');
 });
