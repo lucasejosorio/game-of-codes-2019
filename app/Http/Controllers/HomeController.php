@@ -29,7 +29,11 @@ class HomeController extends Controller
     }
 
 
-    public function welcome(){
-        return view('welcome');
+    public function welcome()
+    {
+        $user = auth()->user();
+        $rides = $user->rides;
+
+        return view('welcome', compact('rides', 'user'));
     }
 }
