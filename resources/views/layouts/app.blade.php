@@ -24,15 +24,15 @@
 </head>
 <body>
 <div id="app">
-    <div class="alert warning">
-        @if($errors->any())
+    @if($errors->any())
+        <div class="alert warning">
             <ul>
                 @foreach($errors as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
-        @endif
-    </div>
+        </div>
+    @endif
     @include('layouts.welcome-loader')
     @include('layouts.navbar')
 
