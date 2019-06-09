@@ -25,5 +25,8 @@ Route::prefix('ride')->group(function(){
 
 });
 
-Route::get('/search', 'SearchController@filter')->name('ride.search');
-
+Route::prefix('user')->group(function(){
+    Route::get('/{user}', 'UserController@show')->name('user.show');
+    Route::get('/{user}/edit', 'UserController@edit')->name('user.edit');
+    Route::post('/{user}/edit', 'UserController@update')->name('user.update');
+});
