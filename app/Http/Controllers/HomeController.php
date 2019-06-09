@@ -26,16 +26,14 @@ class HomeController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $rides = $user->rides;
+        $rides = $user->rides()->paginate(10);
+        $transports = Transport::orderBy('title', 'desc')->get();
         return view('dashboard', compact('rides', 'transports'));
     }
 
 
     public function welcome()
     {
-        $rides = Ride::all();
-        $transports = Transport::all();
-
-        return view('dashboard', compact('rides','transports'));
+        return view('welcome');
     }
 }
