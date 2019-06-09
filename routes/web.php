@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/', 'HomeController@welcome')->name('welcome');
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/search', 'SearchController@filter')->name('search');
 
 Route::prefix('ride')->group(function(){
     Route::get('/', 'RidesController@create')->name('ride.create');

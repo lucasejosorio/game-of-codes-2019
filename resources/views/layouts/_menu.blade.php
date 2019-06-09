@@ -33,7 +33,7 @@
                             </a>
                         </li>
                         <li class="header__dropdown-menu-item">
-                            <a href="{{ route('dashboard') }}" class="header__dropdown-menu-link" title="Help">
+                            <a href="{{ route('search') }}" class="header__dropdown-menu-link" title="Help">
                                 <div class="header__dropdown-menu-svg">
                                     <i class="fas fa-search-location"></i>
                                 </div>
