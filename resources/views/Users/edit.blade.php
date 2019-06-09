@@ -15,10 +15,14 @@
         <label for="exampleInputEmail1">Telefone</label>
         <input type="text" class="form-control" name="phone" placeholder="Digite seu telefone" value="{{$user->phone}}">
     </div>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Selecione um avatar</label>
-        <input type="file" class="form-control-file" name="avatar">
-    </div>
+    @if($user->image)
+        <img src="{{$user->image}}"  style="max-width: 100%;margin: 20px 0;">
+    @else
+        <div class="form-group">
+            <label for="exampleInputEmail1">Selecione um avatar</label>
+            <input type="file" class="form-control-file" name="avatar">
+        </div>
+    @endif
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
