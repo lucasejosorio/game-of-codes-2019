@@ -246,6 +246,8 @@ $(document).ready(function () {
         $.geolocation.save(arg1, true); //Update Localstorage geolocation]
         $('.js-lat').val(arg1.coords.latitude);
         $('.js-lon').val(arg1.coords.longitude);
+        console.log( $('.js-lat').val());
+        console.log( $('.js-lon').val());
         $('.js-search-form').submit();
         Loading.open();
     }
