@@ -1,8 +1,14 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
+@import "reset";
+@import "structure";
+@import "navbar";
+@import "buttons";
+@import "welcome-loader";
+@import "menu";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+.homepage {
+    background-image: url('../img/map.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
