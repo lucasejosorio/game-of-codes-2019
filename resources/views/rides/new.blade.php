@@ -13,7 +13,7 @@
                             <input type="radio" name="transport_id" id="transport_{{$transport->id}}"
                                    value="{{$transport->id}}" {{ $loop->first ? 'checked' : '' }}>
                             <label for="transport_{{$transport->id}}">
-                                <span class="inner--icon"><i class="fas fa-biking"></i></span>
+                                <span class="inner--icon"><i class="fas {{ $transport->icon }}"></i></span>
                                 <span class="inner--text">{{$transport->title}}</span>
                             </label>
                         </div>
