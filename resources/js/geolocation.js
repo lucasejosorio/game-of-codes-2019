@@ -188,26 +188,12 @@ $(document).ready(function () {
     // If geolocation is enabled, try to calculate elements
     if ($.geolocation.load() != null) {
         if ($.geolocation.load().status) {
-            geolocationActionHandler('calculateUsersDistance');
-            geolocationActionHandler('adProfileDistance');
+
+            // Executar funcao
+
         }
 
     }
-
-    function formatGeoMesssage(value) {
-        let msg = value;
-        if (msg <= 1) {
-            msg = 'até 1';
-        } else if (msg > 1 && msg < 10) {
-            msg = msg.toFixed(1);
-        } else if (msg >= 10 && msg <= 500) {
-            msg = msg.toFixed(0);
-        } else {
-            msg = '+ 500';
-        }
-        return msg;
-    }
-
 
     /*
         Register listeners
@@ -251,20 +237,8 @@ $(document).ready(function () {
      */
     function geolocationActionHandler(action) {
         switch (action) {
-            case 'searchRedirect':
-                $.geolocation.get().done(geolocation_action_GetClosestCitiesAndRedirect).fail(geolocationErrorHandler);
-                break;
-            case 'calculateUsersDistance':
-                $.geolocation.get().done(geolocation_action_calculateUsersDistance).fail(geolocationErrorHandler);
-                break;
-            case 'adListByDistance':
+            case 'listByDistance':
                 $.geolocation.get().done(geolocation_action_adListByDistance).fail(geolocationErrorHandler);
-                break;
-            case 'adProfileDistance':
-                $.geolocation.get().done(geolocation_action_adProfileLocation).fail(geolocationErrorHandler);
-                break;
-            case 'updateAdLocation':
-                $.geolocation.get().done(geolocation_action_updateAdLocation).fail(geolocationErrorHandler);
                 break;
             default:
                 console.error('Action: ' + action + ' is not defined');

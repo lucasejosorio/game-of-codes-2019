@@ -9,8 +9,6 @@
 @import "typo";
 @import "toggles";
 @import "modal";
-@import "flat";
-
 @import "~bootstrap/scss/bootstrap-grid";
 @import "~bootstrap/scss/bootstrap-reboot";
 @import "~bootstrap/scss/forms";
@@ -22,12 +20,32 @@
 @import "~bootstrap/scss/variables";
 
 
-.ride-list{
-    &__item{
+.ride-list {
+    &__item {
         padding: 10px;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
         border-radius: 4px;
         background: #ffffff;
+
+        .inner--text {
+            color: rgba(0, 0, 0, 0.87);
+        }
+    }
+}
+
+.no-results {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .inner--icon {
+        font-size: 70px;
+        color: #ececec;
+    }
+
+    .inner--text {
+        font-size: 18px;
+        color: grey;
     }
 }
