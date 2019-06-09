@@ -43,7 +43,9 @@ class RidesController extends Controller
      */
     public function store(StoreRide $request)
     {
-        $ride = Ride::create($request->validated());
+        $user = auth()->user();
+        $ride = $user->rides()->create($request->validated());
+
 
         if (!$ride) {
             return redirect()
@@ -53,7 +55,7 @@ class RidesController extends Controller
                 ]);
         }
 
-        return view('rides.show', compact('ride'));
+        return redirect()->route('dashboard');
     }
 
 
