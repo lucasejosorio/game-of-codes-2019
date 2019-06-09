@@ -23,14 +23,22 @@
                 <ul class="header__dropdown-menu-nav">
                     @auth
                         <li class="header__dropdown-menu-item">
-                            <a href="#" class="header__dropdown-menu-link" title="Help">
+                            <a href="{{ route('welcome') }}" class="header__dropdown-menu-link" title="Help">
                                 <div class="header__dropdown-menu-svg">
-                                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                        <path fill="#000000" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/>
-                                    </svg>
+                                    <i class="fas fa-home"></i>
                                 </div>
                                 <div class="header__dropdown-menu-text">
                                     Home
+                                </div>
+                            </a>
+                        </li>
+                        <li class="header__dropdown-menu-item">
+                            <a href="{{ route('ride.create') }}" class="header__dropdown-menu-link" title="Help">
+                                <div class="header__dropdown-menu-svg">
+                                    <i class="fas fa-biking"></i>
+                                </div>
+                                <div class="header__dropdown-menu-text">
+                                    Corridas
                                 </div>
                             </a>
                         </li>
@@ -40,9 +48,7 @@
                                                      document.getElementById('logout-form').submit();"
                                class="header__dropdown-menu-link" title="Help">
                                 <div class="header__dropdown-menu-svg">
-                                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                        <path fill="#000000" d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z" />
-                                    </svg>
+                                    <i class="fas fa-sign-out-alt"></i>
                                 </div>
                                 <div class="header__dropdown-menu-text">
                                     {{ __('Logout') }}
