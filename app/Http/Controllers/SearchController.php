@@ -22,8 +22,10 @@ class SearchController extends Controller
      */
     public function filter(SearchRide $request)
     {
-        $rides = Ride::select(DB::raw("`transport_id`, `venue_start_id`, `venue_destination_id`, `date`, 111.045*haversine(`latitude`, `longitude`, ". $request->latitude .", ". $request->longitude .") as distance"))
+        $rides = Ride::select(DB::raw("users.`id`, `transport_id`, `venue_start_id`, `venue_destination_id`, `date`, 111.045*haversine(`latitude`, `longitude`, ". $request->latitude .", ". $request->longitude .") as distance"))
             ->join('venues', 'venues.id', '=', 'rides.venue_destination_id')
+            ->join('user_venues', 'rides.id', '=', 'user_venues.ride_id')
+            ->join('users', 'users.id', '=', 'user_venues.user_id')
             ->orderBy('distance', 'asc')
             ->get();
 
@@ -31,7 +33,7 @@ class SearchController extends Controller
             $ride->distance = $this->formatDistanceToKm($ride->distance);
         }
         $transports = Transport::all();
-
+        
         return view('search', compact('rides', 'transports'));
     }
 }
