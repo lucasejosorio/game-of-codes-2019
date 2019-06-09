@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SearchRide;
 use App\Ride;
 use App\Traits\FormatDistance;
+use App\Transport;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,7 +30,8 @@ class SearchController extends Controller
         foreach ($rides AS $ride) {
             $ride->distance = $this->formatDistanceToKm($ride->distance);
         }
+        $transports = Transport::all();
 
-        return view('welcome', compact('rides'));
+        return view('welcome', compact('rides', 'transports'));
     }
 }
