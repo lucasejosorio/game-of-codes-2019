@@ -20,6 +20,10 @@
                 <span class="inner--text font-weight-bold">Veículo: </span>
                 <span class="inner--name text-primary font-weight-bold">{{$ride->transport->title}}</span>
             </div>
+            <div class="to">
+                <span class="inner--text font-weight-bold">Criador: </span>
+                <span class="inner--name text-primary font-weight-bold">{{$ride->users->first()->name}}</span>
+            </div>
             <a class="btn btn-block btn-primary" href="{{route('ride.show', ['ride_id' => $ride->id])}}">Ver detalhes</a>
         </div>
     @empty
