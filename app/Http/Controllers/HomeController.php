@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Ride;
+use App\Transport;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,15 +27,15 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $rides = $user->rides;
-        return view('dashboard', compact('rides', 'user'));
+        return view('dashboard', compact('rides', 'transports'));
     }
 
 
     public function welcome()
     {
-        $user = auth()->user();
-        $rides = $user->rides;
+        $rides = Ride::all();
+        $transports = Transport::all();
 
-        return view('dashboard', compact('rides', 'user'));
+        return view('dashboard', compact('rides','transports'));
     }
 }
