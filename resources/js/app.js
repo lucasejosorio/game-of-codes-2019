@@ -117,7 +117,7 @@ $('#comment-sender').click(function () {
 });
 
 function commentAdd(data) {
-
+    $('#no-comments').hide();
     $('.comment-section ul').append(`
         <li class="comment my-comment">
                         <div class="avatar" style="background-size: cover; background-position: center; background-image: url('${data.avatar}');">

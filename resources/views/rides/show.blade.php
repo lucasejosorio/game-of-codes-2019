@@ -40,7 +40,7 @@
             @foreach($users as $ride_user)
                 <ul class="user-trip-list">
                     <li>
-                        <div class="avatar" style="background-position: center; background-size: cover; background-image: url('http://portalmelhoresamigos.com.br/wp-content/uploads/2016/11/gato-filhote.png');"></div> {{$ride_user->name}} </li>
+                        <div class="avatar" style="background-position: center; background-size: cover; background-image: url('{{$user->image}}'), url('http://portalmelhoresamigos.com.br/wp-content/uploads/2016/11/gato-filhote.png');"></div> {{$ride_user->name}} </li>
                 </ul>
             @endforeach
         </div>
@@ -54,7 +54,7 @@
             <ul>
                 @forelse($ride->comments as $comment)
                     <li class="comment {{$comment->user_id == $user->id ? 'my-comment' : 'other-comment'}}">
-                        <div class="avatar" style="background-size: cover; background-position: center; background-image: url('http://portalmelhoresamigos.com.br/wp-content/uploads/2016/11/gato-filhote.png');">
+                        <div class="avatar" style="background-size: cover; background-position: center; background-image: url('{{$comment->user->image}}'),url('http://portalmelhoresamigos.com.br/wp-content/uploads/2016/11/gato-filhote.png');">
                         </div>
                         <div class="chat">
                             <h6 class="font-weight-bold">{{ $comment->user->name }}</h6>
@@ -62,7 +62,7 @@
                         </div>
                     </li>
                 @empty
-                    <span>Ainda não tem comentários</span>
+                    <span id="no-comments">Ainda não tem comentários</span>
                 @endforelse
             </ul>
             <br>
@@ -81,7 +81,7 @@
     <script>
         var user = '{{$user->id}}';
         var ride_comment_url = '{{route('comment.store', $ride->id)}}'
-        var my_avatar = '';
+        var my_avatar = '{{$user->image}}';
         var my_username = '{{ Auth::user()->name }}';
     </script>
 @endpush

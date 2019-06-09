@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateUser;
 use App\User;
 use Illuminate\Contracts\Auth\Factory;
-use Illuminate\Contracts\Filesystem\Filesystem as Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -43,32 +44,17 @@ class UserController extends Controller
 
     public function Update(UpdateUser $request, $id)
     {   
-        if ($this->auth->user()->id != $id) {
-            abort(401);
-        }
-        $file = $request->file('avatar');
+        $user = auth()->user();
+        $image = Image::make($request->avatar);
+        $file_name = "/storage/images/".md5(now()).".jpg";
+        Storage::put("images/".md5(now()).".jpg", $image->encode('jpg', 75));
 
-        if ($request->hasFile('avatar') && $request->file('avatar')->isValid()) {
-            
-            $date = date('HisYmd');
-            $extension = $request->avatar->extension();
-            $nameFile = "{$id}-{$date}.{$extension}";
-
-            $upload = $request->avatar->store($nameFile);
-            
-            if (!$upload) {
-                return redirect()
-                        ->back()
-                        ->with('error', 'Falha ao fazer upload');
-            }
-            $request->request->add(['image' => $nameFile]);
-        }
+        $request->request->add(['image' => $file_name]);
 
         $userUpdate = User::where('id', $id)
-                    ->update($request->except('_token', 'avatar'));
-    
-        $user = User::where('id', $id)->first();
+        ->update($request->except('_token', 'avatar'));
 
+        $user = $user->fresh();
         return view('users.edit', compact('user'));
     }
 
