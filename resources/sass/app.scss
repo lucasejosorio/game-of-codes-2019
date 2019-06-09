@@ -8,6 +8,8 @@
 @import "menu";
 @import "typo";
 @import "toggles";
+@import "modal";
+@import "flat";
 
 @import "~bootstrap/scss/bootstrap-grid";
 @import "~bootstrap/scss/bootstrap-reboot";
@@ -21,8 +23,6 @@
 
 
 .ride-list{
-
-
     &__item{
         padding: 10px;
         -webkit-border-radius: 4px;
