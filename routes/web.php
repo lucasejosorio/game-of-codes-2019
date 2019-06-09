@@ -22,5 +22,8 @@ Route::prefix('ride')->group(function(){
     Route::post('/store', 'RidesController@store')->name('ride.store');
     Route::get('/{ride_id}', 'RidesController@show')->name('ride.show');
     Route::post('/{ride_id}/comment', 'CommentsController@store')->name('comment.store');
+
 });
+
+Route::get('/search', 'SearchController@filter')->name('ride.search');
 

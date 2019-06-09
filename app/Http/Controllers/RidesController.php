@@ -44,8 +44,18 @@ class RidesController extends Controller
     public function store(StoreRide $request)
     {
         $user = auth()->user();
-        $ride = $user->rides()->create($request->validated());
 
+        $ride = Ride::where("transport_id", $request->transport_id)
+              ->where("venue_start_id", $request->venue_start_id)
+              ->where("venue_destination_id", $request->venue_destination_id)
+              ->where("date", $request->date)
+              ->first();
+
+        if($ride->count() == 0){
+            $ride = Ride::create($request->validated());
+        }
+
+        $ride->users()->attach($user);
 
         if (!$ride) {
             return redirect()
@@ -70,8 +80,10 @@ class RidesController extends Controller
         $user = $this->auth->user();
 
         $ride = Ride::find($id);
-        
-        return view('rides.show', compact('user', 'ride'));
+
+        $users = $ride->users;
+
+        return view('rides.show', compact('user', 'ride', 'users'));
     }
 
     /**
