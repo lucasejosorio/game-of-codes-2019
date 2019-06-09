@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRide;
 use App\Ride;
+use App\Transport;
+use App\Venue;
 use Illuminate\Contracts\Auth\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -28,8 +30,9 @@ class RidesController extends Controller
     public function create()
     {
         $user = $this->auth->user();
-
-        return view('rides.new', compact('user'));
+        $transports = Transport::all();
+        $venues = Venue::all();
+        return view('rides.new', compact('user', 'transports', 'venues'));
     }
 
     /**
