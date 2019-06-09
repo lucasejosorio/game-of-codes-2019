@@ -24,10 +24,10 @@ class UpdateUser extends FormRequest
     public function rules()
     {
         return [
-            'name'  => 'required',
-            'email' => 'required',
+            'name'   => 'required',
+            'email'  => 'required',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'phone' => '',
+            'phone'  => 'min:9|max:11',
         ];
     }
 
@@ -35,10 +35,11 @@ class UpdateUser extends FormRequest
     public function messages()
     {
         return [
-            'name',
-            'email',
-            'avatar',
-            'phone',
+            'name.require'  => 'O campo nome é obrigatório',
+            'email.require' => 'O campo e-mail é obrigatório',
+            'avatar.image'  => 'O campo avatar deve ser uma imagem',
+            'avatar.max'    => 'O tamanho do avatar não deve ser maior que 2048px',
+            'phone'         => 'O campo telefone deve ter no mínimo 9 e no máximo 11 digitos',
         ];
     }
 }
