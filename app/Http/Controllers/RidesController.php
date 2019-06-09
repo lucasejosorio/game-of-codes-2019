@@ -51,15 +51,9 @@ class RidesController extends Controller
               ->where("date", $request->date)
               ->first();
 
-        if(isset($rides) && $ride->count() != 0){
-            return redirect()
-                ->back()
-                ->withErrors([
-                    'message' => 'whoops, ocorreu um erro ao criar sua corrida',
-                ]);
+        if(!isset($ride)){
+            $ride = Ride::create($request->validated());
         }
-
-        $ride = Ride::create($request->validated());
 
         $ride->users()->attach($user);
 
