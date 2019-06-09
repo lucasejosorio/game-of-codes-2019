@@ -152,6 +152,12 @@ a {
   text-decoration: none;
 }
 
+.inner--icon,
+.inner--text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .navbar {
   width: 100%;
   height: 65px;
@@ -454,6 +460,20 @@ a {
   width: 1.65rem;
   height: 1.65rem;
   display: inline-flex;
+}
+
+.section-header {
+  font-weight: bold;
+  color: #2196F3;
+}
+
+.section-header .inner--icon {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.section-header .inner--text {
+  font-size: 16px;
 }
 
 /*!
@@ -10351,9 +10371,9 @@ input[type=button].btn-block {
   width: 100%;
 }
 
-.homepage {
-  background-image: url(/images/map.png?9bbb8a4b2358b524fa2f051c4d5b3816);
-  background-size: cover;
-  background-repeat: no-repeat;
+.ride-list__item {
+  padding: 10px;
+  border-radius: 4px;
+  background: #ffffff;
 }
 
