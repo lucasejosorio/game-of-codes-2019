@@ -13,9 +13,9 @@
 
 Auth::routes();
 
+Route::get('/', 'HomeController@welcome')->name('welcome')->middleware('web');
 
 Route::group(['middleware' => ['web', 'auth']], function () {
-    Route::get('/', 'HomeController@welcome')->name('welcome');
 
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
     Route::get('/search', 'SearchController@filter')->name('search');
