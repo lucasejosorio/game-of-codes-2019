@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $rides = $user->rides;
+        $transports = Transport::orderBy('title', 'desc')->get();
         return view('dashboard', compact('rides', 'transports'));
     }
 
