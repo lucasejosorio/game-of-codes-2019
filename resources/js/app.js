@@ -87,10 +87,10 @@ $(document).ready(function () {
 
     $('.js-open-map').click(function () {
         var self = $(this);
-        var latitude = self.data('latitude');
-        var longitude = self.data('longitude');
+        var latit = parseFloat(self.data('latitude'));
+        var longit = parseFloat(self.data('longitude'));
         var name = self.find('.inner--name').html();
-        initMap({lat: latitude, lng: longitude}, name);
+        initMap({lat: latit, lng: longit}, name);
         $('#map_modal').show();
     });
 
