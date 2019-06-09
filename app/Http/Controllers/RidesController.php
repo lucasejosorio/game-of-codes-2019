@@ -31,7 +31,7 @@ class RidesController extends Controller
     {
         $user = $this->auth->user();
         $transports = Transport::all();
-        $venues = Venue::all();
+        $venues = Venue::orderby('title')->get();
         return view('rides.new', compact('user', 'transports', 'venues'));
     }
 
