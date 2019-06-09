@@ -99,7 +99,7 @@ class RidesController extends Controller
         $ride = Ride::where('id', $id)
                     ->update($request->validated());
 
-        return view('rides.show', compact('ride'));
+        return view('ride.show', compact('ride'));
     }
 
 }

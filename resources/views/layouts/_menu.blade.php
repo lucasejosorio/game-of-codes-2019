@@ -33,16 +33,6 @@
                             </a>
                         </li>
                         <li class="header__dropdown-menu-item">
-                            <a href="{{ route('ride.create') }}" class="header__dropdown-menu-link" title="Help">
-                                <div class="header__dropdown-menu-svg">
-                                    <i class="fas fa-biking"></i>
-                                </div>
-                                <div class="header__dropdown-menu-text">
-                                    Corridas
-                                </div>
-                            </a>
-                        </li>
-                        <li class="header__dropdown-menu-item">
                             <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
