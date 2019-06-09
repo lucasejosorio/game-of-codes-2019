@@ -36,4 +36,8 @@ class Ride extends Model
     {
         return $this->hasMany('App\Comment');
     }
+
+    public function users(){
+        return $this->belongsToMany(User::class, 'user_venues', 'ride_id', 'user_id');
+    }
 }
