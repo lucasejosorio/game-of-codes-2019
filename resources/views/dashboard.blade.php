@@ -9,10 +9,6 @@
                 <i class="fa fa-map-marker-alt"></i> Buscar trips mais próximas
             </button>
         </div>
-        <form class="js-search-form" method="get" action="{{ route('search') }}" style="display: none">
-            <input type="hidden" name="latitude" class="js-lat">
-            <input type="hidden" name="longitude" class="js-lon">
-        </form>
         <div class="section-header clearfix mb-2">
             <span class="inner--icon"><i class="fas fa-biking"></i></span>
             <span class="inner--text">Minhas Trips</span>

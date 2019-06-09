@@ -27,7 +27,7 @@ class SearchController extends Controller
             ->join('user_venues', 'rides.id', '=', 'user_venues.ride_id')
             ->join('users', 'users.id', '=', 'user_venues.user_id')
             ->orderBy('distance', 'asc')
-            ->get();
+            ->paginate(10);
 
         foreach ($rides AS $ride) {
             $ride->distance = $this->formatDistanceToKm($ride->distance);

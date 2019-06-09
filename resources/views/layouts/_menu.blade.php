@@ -33,12 +33,12 @@
                             </a>
                         </li>
                         <li class="header__dropdown-menu-item">
-                            <a href="{{ route('search') }}" class="header__dropdown-menu-link" title="Help">
+                            <a href="{{ route('user.edit', Auth::user()->id) }}" class="header__dropdown-menu-link" title="Help">
                                 <div class="header__dropdown-menu-svg">
-                                    <i class="fas fa-search-location"></i>
+                                    <i class="fas fa-user"></i>
                                 </div>
                                 <div class="header__dropdown-menu-text">
-                                    Buscar trips
+                                    Meu perfil
                                 </div>
                             </a>
                         </li>

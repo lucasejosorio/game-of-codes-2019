@@ -39,6 +39,10 @@
 
     <main class="py-4">
         @yield('content')
+        <form class="js-search-form" method="get" action="{{ route('search') }}" style="display: none">
+            <input type="hidden" name="latitude" class="js-lat">
+            <input type="hidden" name="longitude" class="js-lon">
+        </form>
     </main>
 </div>
 @stack('js')

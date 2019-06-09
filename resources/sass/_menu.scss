@@ -48,7 +48,7 @@
             position: absolute;
             top: 100%;
             width: 100vw;
-            right: -20px;
+            right: -25px;
             height: 100vh;
             min-width: 100%;
             overflow-y: auto;
@@ -79,6 +79,7 @@
         padding: 0.6rem 1.5rem 0.6rem 1.5rem;
         margin-bottom: 0.4rem;
         border-radius: 4px;
+        font-size: 18px;
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.039);
