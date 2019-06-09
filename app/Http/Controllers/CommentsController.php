@@ -2,22 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComment;
+use App\Ride;
+use App\Traits\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
-    public function store($ride_id){
-        request()->validate(
-            [
-                'user' => 'required',
-                'text' => 'required'
-            ]
-        );
+    use RedirectResponse;
 
-        $ride = Ride::find($ride_id);
+    /**
+     * A user can create a comment in a ride
+     *
+     * @param StoreComment $request
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function store(StoreComment $request, $id)
+    {
+        $ride = Ride::find($id);
 
-        $comment = $ride->comments()->create([]);
+        $comment = $ride->comments()->create($request->validated());
 
-        return response()->json($comment);
+        if (!$comment) {
+            return response()->json([
+                'message' => 'Whoops, um erro inesperado ocorreu',
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Novo comentário cadastrado',
+        ]);
     }
 }
