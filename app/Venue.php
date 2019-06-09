@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venue extends Model
 {
-    protected $attributes = [
+    protected $fillable = [
       'title', 'street', 'number', 'latitude', 'longitude'
     ];
 
