@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Http\Requests\StoreComment;
 use App\Ride;
-use App\Traits\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
-    use RedirectResponse;
 
     /**
      * A user can create a comment in a ride
@@ -32,6 +31,29 @@ class CommentsController extends Controller
 
         return response()->json([
             'message' => 'Novo comentário cadastrado',
+        ]);
+    }
+
+    /**
+     * a user can delete his own comments
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse|void
+     */
+    public function delete($id)
+    {
+        $comment = Comment::find($id);
+
+        $response = $comment->delete();
+
+        if (!$response) {
+            return response()->json([
+                'message' => 'Whoops, um erro inesperado ocorreu',
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Comentário excluído',
         ]);
     }
 }
