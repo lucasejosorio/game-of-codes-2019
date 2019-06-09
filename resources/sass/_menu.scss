@@ -1,5 +1,9 @@
 
 .header {
+    &__navbar{
+        margin-bottom: 0;
+        list-style: none;
+    }
     &__item {
         padding: 1rem;
         position: relative;
