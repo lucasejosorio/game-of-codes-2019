@@ -15,3 +15,6 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/ride/show.scss', 'public/css/ride');
 mix.browserSync('http://localhost:8000/');
+if (mix.inProduction()) {
+    mix.copyDirectory('resources/assets/images', 'public/images');
+}

@@ -75,15 +75,19 @@
 .comment {
     margin-bottom: 10px;
     display: flex;
-    .avatar{
+
+    .avatar {
         align-self: flex-end;
     }
+
     &.my-comment {
         flex-direction: row-reverse;
-        .avatar{
+
+        .avatar {
             margin-left: 10px;
             margin-right: 0;
         }
+
         .chat {
             background: $primary-color;
             color: #fff;
@@ -100,9 +104,10 @@
     }
 }
 
-.comment-text-box{
+.comment-text-box {
     display: flex;
-    input{
+
+    input {
         width: 100%;
         height: 50px;
         padding: 10px;
@@ -110,7 +115,8 @@
         border-bottom-left-radius: 4px;
         border: 1px solid #e2e2e2;
     }
-    button{
+
+    button {
         background: $primary-color;
         color: #fff;
         border: none;
@@ -119,5 +125,39 @@
         border-bottom-right-radius: 4px;
         width: 60px;
 
+    }
+}
+
+
+.homepage {
+    background-image: url("./../img/map.png");
+    background-position: center;
+    background-size: cover;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+overflow: hidden;
+    .content-center {
+        max-width: 400px;
+    }
+}
+
+.bike {
+    -webkit-animation-name: biker; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: biker;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+
+}
+
+@-webkit-keyframes biker {
+    from {
+        transform: translateX(-15%);
+    }
+    to {
+        transform: translateX(120%);
     }
 }
