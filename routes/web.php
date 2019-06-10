@@ -11,10 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@welcome')->name('welcome')->middleware('web');
+
+Route::group(['middleware' => ['web', 'auth']], function () {
+
+    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::get('/search', 'SearchController@filter')->name('search');
+
+    Route::prefix('ride')->group(function(){
+        Route::get('/', 'RidesController@create')->name('ride.create');
+        Route::post('/store', 'RidesController@store')->name('ride.store');
+        Route::get('/{ride_id}', 'RidesController@show')->name('ride.show');
+        Route::post('/{ride_id}/comment', 'CommentsController@store')->name('comment.store');
+
+    });
+
+    Route::prefix('user')->group(function(){
+        Route::get('/{user}', 'UserController@show')->name('user.show');
+        Route::get('/{user}/edit', 'UserController@edit')->name('user.edit');
+        Route::post('/{user}/edit', 'UserController@update')->name('user.update');
+    });
+});
